@@ -12,6 +12,18 @@ div {
   border-radius: 10px;
 }
 
+button {
+  border-radius: 10px;
+}
+
+.btn-text:active, .number:active {
+  background-color: #FBB86F;
+}
+
+.operator:active {
+  background-color: #FB786F;
+}
+
 #heading {
   margin: 20px 0px;
   font-size: 36px;
@@ -47,19 +59,19 @@ div {
   gap: 10px;
 }
 
-.input > div {
+.input > button {
   background-color: #FEE185;
   border: 2px #A4A3A3 solid;
 }
 
 .btn-small {
-  width: 80px;
+  width: 84px;
   display: flex;
   justify-content: center;
 }
 
 .btn-big {
-  width: 174px;
+  width: 178px;
   display: flex;
   justify-content: center;
 }
