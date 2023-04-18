@@ -32,7 +32,7 @@ button {
 
 #main {
   width: 386px;
-  height: 528px;
+  height: 582px;
   background-color: #FCF3DD;
   border: 2px solid #E2E2E1;
   display: flex;
@@ -46,12 +46,13 @@ button {
   width: 330px;
   height: 128px;
   border: 2px #A4A3A3 solid;
-  font-size: 42px;
+  font-size: 48px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   padding: 0px 16px;
   background-color: #FFE7A6;
+  color: #725029;
 }
 
 .input {

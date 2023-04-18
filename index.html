@@ -3,46 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>Calculator</title>
-  <script src="./index.js"></script>
+  <script src="./index.js" defer></script>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <div id="heading">Do math</div>
 
 <div id="main">
-  <div id="output" class="number">HELLO</div>
+  <div id="output"></div>
   
   <div class="input">
-    <button class="btn-big btn-text">Clear</button>
-    <button class="btn-small btn-text">Del</button>
-    <button class="btn-small operator">&divide;</button>
+    <button class="btn-big btn-text" data-key="clear">Clear</button>
+    <button class="btn-small btn-text" data-key="del">Del</button>
+    <button class="btn-small operator" data-key="divide">&divide;</button>
   </div>
 
   <div class="input">
-    <button class="btn-small number">7</button>
-    <button class="btn-small number">8</button>
-    <button class="btn-small number">9</button>
-    <button class="btn-small operator">&times;</button>
+    <button class="btn-small number" data-key="7">7</button>
+    <button class="btn-small number" data-key="8">8</button>
+    <button class="btn-small number" data-key="9">9</button>
+    <button class="btn-small operator" data-key="times">&times;</button>
   </div>
 
   <div class="input">
-    <button class="btn-small number">4</button>
-    <button class="btn-small number">5</button>
-    <button class="btn-small number">6</button>
-    <button class="btn-small operator">&minus;</button>
+    <button class="btn-small number" data-key="4">4</button>
+    <button class="btn-small number" data-key="5">5</button>
+    <button class="btn-small number" data-key="6">6</button>
+    <button class="btn-small operator" data-key="minus">&minus;</button>
   </div>
   
   <div class="input">
-    <button class="btn-small number">1</button>
-    <button class="btn-small number">2</button>
-    <button class="btn-small number">3</button>
-    <button class="btn-small operator">&plus;</button>
+    <button class="btn-small number" data-key="1">1</button>
+    <button class="btn-small number" data-key="2">2</button>
+    <button class="btn-small number" data-key="3">3</button>
+    <button class="btn-small operator" data-key="plus">&plus;</button>
   </div>
 
   <div class="input">
-    <button class="btn-small number">0</button>
-    <button class="btn-small number">.</button>
-    <button class="btn-big operator">&equals;</button>
+    <button class="btn-small number" data-key="0">0</button>
+    <button class="btn-small number" data-key=".">.</button>
+    <button class="btn-big operator" data-key="equals">&equals;</button>
   </div>
 </div>
 
