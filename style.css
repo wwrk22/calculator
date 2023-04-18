@@ -50,7 +50,6 @@ div {
 .input > div {
   background-color: #FEE185;
   border: 2px #A4A3A3 solid;
-  padding: 20px 0px 10px 0px;
 }
 
 .btn-small {
@@ -68,12 +67,14 @@ div {
 .number {
   font-size: 36px;
   color: #725029;
+  padding: 20px 0px 10px 0px;
 }
 
 .operator {
   font-size: 36px;
   font-weight: bold;
   color: #F5B73E;
+  padding: 20px 0px 10px 0px;
 }
 
 .input .btn-text {
