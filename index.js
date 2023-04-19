@@ -89,7 +89,7 @@ const opButtonListener = function(button) {
 const registerOperator = function(newOp) {
   if (firstOperand !== "") {
     doArithmetic();
-    setOutput(formatNumber(Number(firstOperand)));
+    setOutput(formatNumber(firstOperand));
 
     if (newOp === "equals") {
       operator = "";
@@ -125,13 +125,18 @@ function doArithmetic() {
 }
 
 function formatNumber(number) {
-  const formatted = (number.toFixed(4) * 1).toString();
-  const [whole, decimal] = formatted.split(".");
+  const formatted = (Number(number).toFixed(4) * 1).toString();
 
-  if (Number(decimal) === 0) {
-    return whole;
+  if (formatted === "Infinity" || formatted === "NaN") {
+    return "ERROR";
   } else {
-    return formatted;
+    const [whole, decimal] = formatted.split(".");
+
+    if (Number(decimal) === 0) {
+      return whole;
+    } else {
+      return formatted;
+    }
   }
 }
 
