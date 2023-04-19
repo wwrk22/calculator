@@ -45,8 +45,6 @@ const numberButtonListener = function(button) {
 // If we have an operator to execute, then append digit to the second operand.
 // Otherwise, append number to the first operand.
 const registerDigit = function(digit) {
-  const output = document.querySelector('#output');
-
   if (operator === "") {
     if (resetFirstOperand) {
       resetFirstOperand = false;
@@ -54,10 +52,10 @@ const registerDigit = function(digit) {
     }
 
     firstOperand = appendDigit(firstOperand, digit);
-    output.textContent = firstOperand;
+    setOutput(firstOperand);
   } else {
     secondOperand = appendDigit(secondOperand, digit);
-    output.textContent = secondOperand;
+    setOutput(secondOperand);
   }
 };
 
@@ -89,11 +87,9 @@ const opButtonListener = function(button) {
 };
 
 const registerOperator = function(newOp) {
-  const output = document.querySelector('#output');
-
   if (firstOperand !== "") {
     doArithmetic();
-    output.textContent = formatNumber(Number(firstOperand));
+    setOutput(formatNumber(Number(firstOperand)));
 
     if (newOp === "equals") {
       operator = "";
@@ -142,3 +138,22 @@ function formatNumber(number) {
 const main = document.querySelector('#main');
 const opButtons = main.querySelectorAll('.operator');
 opButtons.forEach(opButtonListener);
+
+
+/* CLEAR AND DEL */
+const clear = document.querySelector('#clear');
+clear.addEventListener('click', clearAll);
+function clearAll() {
+  firstOperand = "";
+  secondOperand = "";
+  operator = "";
+  resetFirstOperand = false;
+  setOutput("");
+}
+
+
+/* Helpers */
+function setOutput(value) {
+  const output = document.querySelector('#output');
+  output.textContent = value;
+}
