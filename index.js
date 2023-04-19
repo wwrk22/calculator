@@ -40,34 +40,23 @@ function operate(a, b, op) {
 
 
 /* -- NUMBER BUTTON EVENT LISTENER -- */
-window.addEventListener("keydown", event => {
+window.addEventListener("keydown", event => btnKeyEvent(event));
+
+window.addEventListener("keyup", event => btnKeyEvent(event));
+
+function btnKeyEvent(event) {
   if (USED_EVENT_KEYS.includes(event.key) === false) {
     return;
   }
-
-  let selector = event.key;
-  if (event.key === "Enter") {
-    selector = "=";
-  }
-
+  
+  let selector = (event.key === "Enter") ? "=" : event.key;
   const btn = document.querySelector(`.btn[data-key="${selector}"]`);
-  btn.click();
-  toggleBtnStyle(btn);
-});
 
-window.addEventListener("keyup", event => {
-  if (USED_EVENT_KEYS.includes(event.key) === false) {
-    return;
+  if (event.type === "keydown") {
+    btn.click();
   }
-
-  let selector = event.key;
-  if (event.key === "Enter") {
-    selector = "=";
-  }
-
-  const btn = document.querySelector(`.btn[data-key="${selector}"]`);
   toggleBtnStyle(btn);
-});
+}
 
 function toggleBtnStyle(btn) {
   if (btn.classList.contains('number') || btn.classList.contains('btn-text')) {
