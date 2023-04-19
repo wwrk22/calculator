@@ -120,6 +120,7 @@ function doArithmetic() {
         break;
     }
 
+    firstOperand = firstOperand.toString();
     secondOperand = "";
   }
 }
@@ -154,6 +155,20 @@ function clearAll() {
   operator = "";
   resetFirstOperand = false;
   setOutput("");
+}
+
+const del = document.querySelector('#del');
+del.addEventListener('click', delOne);
+function delOne() {
+  if (secondOperand !== "") {
+    secondOperand = secondOperand.slice(0, secondOperand.length - 1);
+    setOutput(secondOperand);
+  } else {
+    if (resetFirstOperand === false) {
+      firstOperand = firstOperand.slice(0, firstOperand.length - 1);
+      setOutput(firstOperand);
+    }
+  }
 }
 
 
