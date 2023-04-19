@@ -122,21 +122,16 @@ const registerOperator = function(btn) {
     doArithmetic()
     setOutput(formatNumber(firstOperand));
 
+    if (currOperatorBtn) {
+      currOperatorBtn.classList.toggle('btn-active-red');
+    }
+
     if (btn.dataset.key === "=") {
       operator = "";
       resetFirstOperand = true;
-
-      if (currOperatorBtn) {
-        currOperatorBtn.classList.toggle('btn-active-red');
-        currOperatorBtn = operator;
-      }
+      currOperatorBtn = "";
     } else {
       operator = btn.dataset.key;
-
-      if (currOperatorBtn) {
-        currOperatorBtn.classList.toggle('btn-active-red');
-      }
-      
       currOperatorBtn = btn;
       btn.classList.toggle('btn-active-red');
     }
