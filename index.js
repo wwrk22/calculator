@@ -1,7 +1,7 @@
 let firstOperand = "";
 let secondOperand = "";
 let operator = "";
-let result = "";
+let resetFirstOperand = false;
 
 function add(a, b) {
   return a + b;
@@ -48,6 +48,11 @@ const registerDigit = function(digit) {
   const output = document.querySelector('#output');
 
   if (operator === "") {
+    if (resetFirstOperand) {
+      resetFirstOperand = false;
+      firstOperand = "";
+    }
+
     firstOperand = appendDigit(firstOperand, digit);
     output.textContent = firstOperand;
   } else {
@@ -92,6 +97,7 @@ const registerOperator = function(newOp) {
 
     if (newOp === "equals") {
       operator = "";
+      resetFirstOperand = true;
     } else {
       operator = newOp;
     }
