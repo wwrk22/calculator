@@ -2,6 +2,10 @@ let firstOperand = "";
 let secondOperand = "";
 let operator = "";
 let resetFirstOperand = false;
+const USED_EVENT_KEYS = [
+  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.',
+  'Enter', '+', '-', '*', '/', '=', 'Backspace', 'Escape'
+];
 
 function add(a, b) {
   return a + b;
@@ -36,6 +40,22 @@ function operate(a, b, op) {
 
 
 /* -- NUMBER BUTTON EVENT LISTENER -- */
+window.addEventListener("keydown", event => {
+  // Ignore shift key
+  if (USED_EVENT_KEYS.includes(event.key) === false) {
+    return;
+  }
+
+  let selector = event.key;
+
+  if (event.key === "Enter") {
+    selector = "=";
+  }
+
+  const btn = document.querySelector(`.btn[data-key="${selector}"]`);
+  btn.click();
+});
+
 const numberButtonListener = function(button) {
   button.addEventListener("click", () => {
     registerDigit(button.dataset.key);
@@ -91,7 +111,7 @@ const registerOperator = function(newOp) {
     doArithmetic();
     setOutput(formatNumber(firstOperand));
 
-    if (newOp === "equals") {
+    if (newOp === "=") {
       operator = "";
       resetFirstOperand = true;
     } else {
@@ -106,16 +126,16 @@ const registerOperator = function(newOp) {
 function doArithmetic() {
   if (operator !== "" && secondOperand !== "") {
     switch (operator) {
-      case "plus":
+      case "+":
         firstOperand = Number(firstOperand) + Number(secondOperand);
         break;
-      case "minus":
+      case "-":
         firstOperand = Number(firstOperand) - Number(secondOperand);
         break;
-      case "times":
+      case "*":
         firstOperand = Number(firstOperand) * Number(secondOperand);
         break;
-      case "divide":
+      case "/":
         firstOperand = Number(firstOperand) / Number(secondOperand);
         break;
     }
