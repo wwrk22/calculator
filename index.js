@@ -93,7 +93,7 @@ const registerOperator = function(newOp) {
 
   if (firstOperand !== "") {
     doArithmetic();
-    output.textContent = firstOperand;
+    output.textContent = formatNumber(Number(firstOperand));
 
     if (newOp === "equals") {
       operator = "";
@@ -125,6 +125,17 @@ function doArithmetic() {
     }
 
     secondOperand = "";
+  }
+}
+
+function formatNumber(number) {
+  const formatted = (number.toFixed(4) * 1).toString();
+  const [whole, decimal] = formatted.split(".");
+
+  if (Number(decimal) === 0) {
+    return whole;
+  } else {
+    return formatted;
   }
 }
 
