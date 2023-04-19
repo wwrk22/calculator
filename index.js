@@ -41,20 +41,41 @@ function operate(a, b, op) {
 
 /* -- NUMBER BUTTON EVENT LISTENER -- */
 window.addEventListener("keydown", event => {
-  // Ignore shift key
   if (USED_EVENT_KEYS.includes(event.key) === false) {
     return;
   }
 
   let selector = event.key;
-
   if (event.key === "Enter") {
     selector = "=";
   }
 
   const btn = document.querySelector(`.btn[data-key="${selector}"]`);
   btn.click();
+  toggleBtnStyle(btn);
 });
+
+window.addEventListener("keyup", event => {
+  if (USED_EVENT_KEYS.includes(event.key) === false) {
+    return;
+  }
+
+  let selector = event.key;
+  if (event.key === "Enter") {
+    selector = "=";
+  }
+
+  const btn = document.querySelector(`.btn[data-key="${selector}"]`);
+  toggleBtnStyle(btn);
+});
+
+function toggleBtnStyle(btn) {
+  if (btn.classList.contains('number') || btn.classList.contains('btn-text')) {
+    btn.classList.toggle('btn-active-orange');
+  } else if (btn.classList.contains('operator')) {
+    btn.classList.toggle('btn-active-red');
+  }
+}
 
 const numberButtonListener = function(button) {
   button.addEventListener("click", () => {

@@ -16,14 +16,6 @@ button {
   border-radius: 10px;
 }
 
-.btn-text:active, .number:active {
-  background-color: #FBB86F;
-}
-
-.operator:active {
-  background-color: #FB786F;
-}
-
 #heading {
   margin: 20px 0px;
   font-size: 36px;
@@ -60,9 +52,25 @@ button {
   gap: 10px;
 }
 
-.input > button {
+.btn {
   background-color: #FEE185;
   border: 2px #A4A3A3 solid;
+}
+
+.btn-active-orange {
+  background-color: #FBB86F;
+}
+
+.btn-active-red {
+  background-color: #FB786F;
+}
+
+.btn-text:active, .number:active {
+  background-color: #FBB86F;
+}
+
+.operator:active, .btn-active-red {
+  background-color: #FB786F;
 }
 
 .btn-small {
