@@ -2,6 +2,7 @@ let firstOperand = "";
 let secondOperand = "";
 let operator = "";
 let resetFirstOperand = false;
+let currOperatorBtn;
 const USED_EVENT_KEYS = [
   '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.',
   'Enter', '+', '-', '*', '/', '=', 'Backspace', 'Escape'
@@ -112,20 +113,32 @@ numberButtons.forEach(numberButtonListener);
 /* -- OPERATOR BUTTON EVENT LISTENER -- */
 const opButtonListener = function(button) {
   button.addEventListener("click", () => {
-    registerOperator(button.dataset.key);
+    registerOperator(button);
   });
 };
 
-const registerOperator = function(newOp) {
+const registerOperator = function(btn) {
   if (firstOperand !== "") {
-    doArithmetic();
+    doArithmetic()
     setOutput(formatNumber(firstOperand));
 
-    if (newOp === "=") {
+    if (btn.dataset.key === "=") {
       operator = "";
       resetFirstOperand = true;
+
+      if (currOperatorBtn) {
+        currOperatorBtn.classList.toggle('btn-active-red');
+        currOperatorBtn = operator;
+      }
     } else {
-      operator = newOp;
+      operator = btn.dataset.key;
+
+      if (currOperatorBtn) {
+        currOperatorBtn.classList.toggle('btn-active-red');
+      }
+      
+      currOperatorBtn = btn;
+      btn.classList.toggle('btn-active-red');
     }
   }
 };
