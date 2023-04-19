@@ -69,7 +69,7 @@ button {
   background-color: #FBB86F;
 }
 
-.operator:active, .btn-active-red {
+.btn[data-key="="]:active {
   background-color: #FB786F;
 }
 
